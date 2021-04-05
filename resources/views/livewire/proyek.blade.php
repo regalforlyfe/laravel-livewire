@@ -36,20 +36,17 @@
                     <div class="form-group">
                         <label>Kategori</label>
                         <select wire:model="judul_proyek" class="form-control">
-                            @foreach($kategori as $proyek)
-                            <option value="{{$proyek->id_kategori}}" {{  $proyek->id_kategori === $proyek->id_kategori ? 'selected' : '' }}>{{$proyek->name}}</option>
-                            @endforeach
                         </select>
                         @error('judul_proyek') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                     <div class="form-group">
                         <label>Pembimbing</label>
-                        <!-- <input wire:model="id_dosen" type="text" class="form-control"> -->
+                        <input wire:model="id_dosen" type="text" class="form-control">
                         @error('id_dosen') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                     <div class="form-group">
                         <label>Anggota</label>
-                        <!-- <input wire:model="id_anggota" type="text" class="form-control"> -->
+                        <input wire:model="id_anggota" type="text" class="form-control">
                         @error('id_anggota') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                     <div class="form-group">
