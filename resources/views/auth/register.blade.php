@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pt-5">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body" style="background-color: #8BCDCD;">
                     <form method="POST" action="{{ route('register') }}">
@@ -22,7 +22,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group pl-5 pr-5">
                             <label for="name">{{ __('Name') }}</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -33,7 +33,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group pl-5 pr-5">
                             <label for="email">{{ __('E-Mail Address') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -44,7 +44,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group pl-5 pr-5">
                             <label for="password">{{ __('Password') }}</label>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -55,12 +55,12 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group pl-5 pr-5">
                             <label for="password-confirm">{{ __('Confirm Password') }}</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
 
-                        <div class="form-group mb-0">
+                        <div class="form-group pl-5 pr-5">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Register') }}
                             </button>

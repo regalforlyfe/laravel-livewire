@@ -8,8 +8,20 @@
                 </span>
             </a>
         </li>
+        @guest
+            @if (Route::has('login'))
+
         <li class="nav-item text-center pt-5">
-            <a class="btn btn-default btn-sm" href="/home"><img src="{{asset('asset/home.svg')}}" class=""><br />Dashboard</a>
+            <a class="btn btn-default btn-sm" href="/"><img src="{{asset('asset/home.svg')}}" class=""><br />Dashboard</a>
+        </li>
+        <li class="nav-item text-center pt-5">
+            <a class="btn btn-default btn-sm" href="/kategori"><img src="{{asset('asset/kategori.svg')}}" class=""><br />Kategori</a>
+        </li>
+        <div style="min-height:625px"></div>
+        @endif
+        @else
+        <li class="nav-item text-center pt-5">
+            <a class="btn btn-default btn-sm" href="/"><img src="{{asset('asset/home.svg')}}" class=""><br />Dashboard</a>
         </li>
         <li class="nav-item text-center pt-5">
             <a class="btn btn-default btn-sm" href="/kategori"><img src="{{asset('asset/kategori.svg')}}" class=""><br />Kategori</a>
@@ -18,5 +30,6 @@
             <a class="btn btn-default btn-sm" href="/proyek"><img src="{{asset('asset/proyek.svg')}}" class=""><br />Input Proyek</a>
         </li>
         <div style="min-height:625px"></div>
+        @endguest
     </ul>
 </div>
