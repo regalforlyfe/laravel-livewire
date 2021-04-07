@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->enum('tipe_user', ['mahasiswa','dosen','admin']);
+            $table->unsignedBigInteger('id_role')->nullable();
             $table->string('foto_profil')->nullable();
             $table->string('nim')->nullable();
             $table->string('prodi')->nullable();
@@ -29,6 +29,8 @@ class CreateUsersTable extends Migration
             $table->string('social_media')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('id_role')->references('id')->on('role')->onDelete('cascade');
         });
     }
 

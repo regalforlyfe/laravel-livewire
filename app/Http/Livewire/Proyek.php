@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Proyek as ProyekModel;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Storage;
 
 class Proyek extends Component
@@ -15,9 +16,11 @@ class Proyek extends Component
 
     public function render()
     {
+        $kategori = Kategori::get();
         $proyek = ProyekModel::orderBy('created_at', 'DESC')->get();
         return view('livewire.proyek', [
-            'proyek' => $proyek
+            'proyek' => $proyek,
+            'kategori' => $kategori
         ]);
     }
 

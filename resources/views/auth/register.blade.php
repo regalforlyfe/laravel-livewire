@@ -15,7 +15,7 @@
                         </div>
                         
                         <div class="text-center pb-4">
-                            <select id="tipe_user" class="block w-full" type="text" name="tipe_user" value="{{old('tipe_user')}}" required autocomplete="tipe_user" autofocus >
+                            <select id="tipe_user" class="block w-full" type="text" name="tipe_user" value="{{old('')}}" required autocomplete="tipe_user" autofocus >
                                 <option value="mahasiswa">mahasiswa</option>
                                 <option value="dosen">dosen</option>
                                 <option value="admin">admin</option>

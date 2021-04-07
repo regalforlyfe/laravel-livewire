@@ -1,10 +1,10 @@
-<div class="navbar navbar-expand-lg m-0">
+<div class="navbar navbar-expand-lg m-0" style="background-color: #f8fafc;">
     <a class="navbar-brand">
         <img src="{{asset('asset/logo.png')}}" height="30" alt="logo" loading="lazy"> 
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto pt-3">
+        <ul class="navbar-nav ml-auto pt-2">
             @guest
             @if (Route::has('login'))
             <li class="nav-item">
@@ -18,59 +18,31 @@
             </li>
             @endif
             @else
-            <li class="nav-item pl-5">
-                <a href="/mahasiswa" style="float:right; font-size:15px; color:grey" class="text-center">
+            <li class="nav-item pl-3">
+                <a href="/profil" class="nav-link">
                     {{ Auth::user()->name }}
                     <img src="{{asset('asset/mdi_account_circle.png')}}" height="30" alt="logo" loading="lazy"></span>
                 </a>
             </li>
 
-            <li class="nav-item dropdown pl-5">
+            <li class="nav-item dropdown pl-3">
                 <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="{{asset('asset/mdi_notifications.png')}}" height="30" alt="logo" loading="lazy">
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 250px;">
-                    <li class="dropdown-item text-center m-2 pt-3">
-                        <h4> <a href="/mahasiswa"><b>Ahmad Rifal</b></a> Menambahkan anda dalam sebuah proyek</h4>
-                        <h4>apakah anda menyetujui?</h4>
-                        <div class="row text-center pt-4">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary btn-lg">
-                                    <h4 class="pt-2">Ya</h4>
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger btn-lg">
-                                    <h4 class="pt-2">Tidak</h4>
-                                </button>
-                            </div>
-                        </div>
+                    <li class="dropdown-item text-center pt-3">
+                        <p> <a href="/mahasiswa"><b>Ahmad Rifal</b></a> Menambahkan anda dalam sebuah proyek</p>
                     </li>
-
-                    <hr class="pt-3">
-
-                    <li class="dropdown-item text-center p-3 pt-3">
-                        <h4> <a href="/mahasiswa"><b>pale</b></a> Menambahkan anda dalam sebuah proyek</h4>
-                        <h4>apakah anda menyetujui?</h4>
-                        <div class="row text-center pt-4">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary btn-lg">
-                                    <h4 class="pt-2">Ya</h4>
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger btn-lg">
-                                    <h4 class="pt-2">Tidak</h4>
-                                </button>
-                            </div>
-                        </div>
+                    <hr>
+                    <li class="dropdown-item text-center">
+                        <p> <a href="/mahasiswa"><b>pale</b></a> Menambahkan anda dalam sebuah proyek</p>
                     </li>
                 </ul>
 
             </li>
 
-            <li class="nav-item dropdown pl-5">
+            <li class="nav-item dropdown pl-3">
                 <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="{{asset('asset/mdi_arrow_drop_down.png')}}" height="30" alt="logo" loading="lazy">
                 </a>
@@ -83,32 +55,25 @@
                             </div>
 
                             <div class="col pt-2">
-                                <h4 class="pl-3"><b>{{ Auth::user()->name }}</b></h4>
-                                <h4 class="pl-3">{{ Auth::user()->tipe_user }}</h4>
+                                <p class="pl-3"><b>{{ Auth::user()->name }}</b></p>
+                                <p class="pl-3">{{ Auth::user()->tipe_user }}</p>
                             </div>
                         </div>
                     </li>
-                    <li class="text-center pt-3 pb-3">
-                        <a href="/mahasiswa">
-                            <button type="button" class="btn btn-outline-info btn-lg">
-                                <h4 class="pt-2" style="color:black">Lihat Profil Anda</h4>
-                            </button>
-                        </a>
-                    </li>
-                    <li class="pt-2">
+                    <li class="pt-3">
                         <a href="/mahasiswa" style="color:black">
-                            <h4 style="padding-left:20px">Edit Profile</h4>
+                            <p class="pl-5">Edit Profile</p>
                         </a>
                     </li>
-                    <li class="pt-2">
+                    <li>
                         <a href="/mahasiswa" style="color:black">
-                            <h4 style="padding-left:20px">Pengaturan & Privasi</h4>
+                            <p class="pl-5">Pengaturan & Privasi</p>
                         </a>
                     </li>
-                    <li class="pt-2 pb-3">
+                    <li>
                         <a href="{{ route('logout') }}" style="color:black" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            <h4 style="padding-left:20px">{{ __('Logout') }}</h4>
+                            <p class="pl-5">{{ __('Logout') }}</p>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -1,6 +1,6 @@
 <div style="background-color: #F2F3F5;">
     <div class="text-center">
-        <h2 class="pt-5">Input Proyek</h2>
+        <h3 class="pt-5">Input Proyek</h3>
     </div>
     <div class="container pt-5 pb-5">
         <div class="card p-5">
@@ -35,7 +35,10 @@
                     </div>
                     <div class="form-group">
                         <label>Kategori</label>
-                        <select wire:model="judul_proyek" class="form-control">
+                        <select wire:model="id_kategori" class="form-control">
+                        @foreach($kategori as $value)
+                        <option value="{{$value->id_kategori}}">{{$value->nama_kategori}}</option>
+                        @endforeach
                         </select>
                         @error('judul_proyek') <small class="text-danger">{{$message}}</small>@enderror
                     </div>

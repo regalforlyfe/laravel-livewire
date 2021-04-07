@@ -1,4 +1,4 @@
-<div class="pt-5">
+<div class="pt-5" style="background-color: #f8fafc;">
     <div class="text-center">
         <img src="{{asset('asset/ellipse.png')}}" height="150" alt="logo" loading="lazy">
         <h2 class="pt-5">Mahasiswa</h2>
