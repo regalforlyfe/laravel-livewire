@@ -29,6 +29,12 @@
         <li class="nav-item text-center pt-5">
             <a class="btn btn-default btn-sm" href="/proyek"><img src="{{asset('asset/proyek.svg')}}" class=""><br />Input Proyek</a>
         </li>
+        <li class="nav-item text-center pt-5">
+            <a class="btn btn-default btn-sm" href="/proyek"><img src="{{asset('asset/proyek.svg')}}" class=""><br />User</a>
+        </li>
+        <li class="nav-item text-center pt-5">
+            <a class="btn btn-default btn-sm" href="/proyek"><img src="{{asset('asset/proyek.svg')}}" class=""><br />Master Data</a>
+        </li>
         <div style="min-height:625px"></div>
         @endguest
     </ul>
