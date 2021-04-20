@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Kategori extends Migration
+class AddForeignKeysToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class Kategori extends Migration
      */
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nama_kategori');
-            $table->string('deskripsi')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('id_role', 'users_ibfk_1')->references('id')->on('role')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
@@ -29,6 +25,8 @@ class Kategori extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_ibfk_1');
+        });
     }
 }

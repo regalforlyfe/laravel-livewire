@@ -13,20 +13,20 @@
                             <h1>{{ __('Register') }}</h1>
                             <h5>Sebagai</h5>
                         </div>
-                        
+
                         <div class="text-center pb-4">
-                            <select id="tipe_user" class="block w-full" type="text" name="tipe_user" value="{{old('')}}" required autocomplete="tipe_user" autofocus >
-                                <option value="mahasiswa">mahasiswa</option>
-                                <option value="dosen">dosen</option>
-                                <option value="admin">admin</option>
+                            <select id="id_role" class="block w-full" type="text" name="id_role" value="{{old('')}}" required autocomplete="id_role" autofocus>
+                                @foreach($role as $value)
+                                <option value="{{$value->id}}">{{$value->nama_role}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="form-group pl-5 pr-5">
-                            <label for="name">{{ __('Name') }}</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <label for="nama">{{ __('Nama') }}</label>
+                            <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
 
-                            @error('name')
+                            @error('nama')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
