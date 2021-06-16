@@ -20,7 +20,7 @@
             @else
             <li class="nav-item pl-3">
                 <a href="/profil" class="nav-link">
-                    {{ Auth::user()->name }}
+                    {{ Auth::user()->nama }}
                     <img src="{{asset('asset/mdi_account_circle.png')}}" height="30" alt="logo" loading="lazy"></span>
                 </a>
             </li>
@@ -54,9 +54,9 @@
                                 <img src="{{asset('asset/ellipse.png')}}" height="50" alt="logo" loading="lazy">
                             </div>
 
-                            <div class="col pt-2">
-                                <p class="pl-3"><b>{{ Auth::user()->name }}</b></p>
-                                <p class="pl-3">{{ Auth::user()->tipe_user }}</p>
+                            <div class="col">
+                                <p class="pl-3"><b>{{ Auth::user()->nama }}</b></p>
+                                <p class="pl-3">{{ Auth::user()->id_role }}</p>
                             </div>
                         </div>
                     </li>

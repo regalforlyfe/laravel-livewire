@@ -20,50 +20,94 @@
     <div style="background-color: #F2F3F5;">
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="listproyek" role="tabpanel" aria-labelledby="listproyek-tab">
+                @foreach($proyek as $index=>$proyek)
                 <div class="container pt-5 pb-5">
                     <div class="card p-5">
                         <div class="card-body">
+                        <a href="/pilihanggota/{{$proyek->id}}">tambah anggota</a>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="{{asset('asset/proyek.png')}}" height="300" width="200" alt="logo" loading="lazy">
+                                    <img src="{{url('storage/images/', $proyek->image)}}" height="300" width="200" alt="gambar proyek" loading="lazy">
                                 </div>
                                 <div class="col-md-9">
                                     <table class="table-lg">
                                         <tbody>
                                             <tr>
-                                                <td>Judul Proyek</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Judul Proyek</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->judul_proyek}}</h5>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Deskripsi</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Deskripsi</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->deskripsi_proyek}}</h5>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Jenis Proyek</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Jenis Proyek</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->jenis_proyek}}</h5>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Kategori</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Kategori</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->id_kategori}}</h5>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Pembimbing</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Pembimbing</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->id_dosen}}</h5>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Anggota Proyek</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Anggota Proyek</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->id_anggota}}</h5>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Link Proyek</td>
-                                                <td>:</td>
-                                                <td></td>
+                                                <td>
+                                                    <h5>Link Proyek</h5>
+                                                </td>
+                                                <td class="pr-5 pl-5">
+                                                    <h5>:</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>{{$proyek->link_proyek}}</h5>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -72,9 +116,96 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
             <div class="tab-pane fade" id="tentang" role="tabpanel" aria-labelledby="tentang-tab">
-                        ...
+                <div class="container pt-5 pb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 p-5">
+                                    <table class="table-lg">
+                                        <tbody>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>Nama Lengkap</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>NIM</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>Prodi</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-5">
+                                                    <h5>Alamat</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>Email</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>Social Media</h5>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <img src="{{asset('asset/line 2.png')}}" height="500" alt="logo" loading="lazy">
+                                </div>
+
+                                <div class="col-md-6 p-5">
+                                    <table class="table-lg">
+                                        <tbody>
+                                            @foreach($user as $index=>$user)
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>{{$user->nama}}</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>{{$user->id_card}}</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>{{$user->prodi}}</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-5">
+                                                    <h5>{{$user->alamat}}</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>{{$user->email}}</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pb-4">
+                                                    <h5>{{$user->social_media}}</h5>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
