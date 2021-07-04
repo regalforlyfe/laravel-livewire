@@ -22,7 +22,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group pl-5 pr-5">
+                        {{-- <div class="form-group pl-5 pr-5">
                             <label for="nama">{{ __('Nama') }}</label>
                             <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
 
@@ -31,7 +31,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         <div class="form-group pl-5 pr-5">
                             <label for="email">{{ __('E-Mail Address') }}</label>

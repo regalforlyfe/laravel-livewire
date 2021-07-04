@@ -9,6 +9,6 @@ class Proyek extends Model
 {
     protected $table = 'proyek';
     protected $guard = [];
-    protected $fillable = ['judul_proyek','tahun','deskripsi_proyek','id_kategori','link_proyek','image','jenis_proyek'];
+    protected $fillable = ['image','judul_proyek','tahun','deskripsi_proyek','jenis_proyek','id_kategori','link_proyek'];
     use HasFactory;
 }

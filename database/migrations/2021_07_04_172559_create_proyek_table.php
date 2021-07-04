@@ -16,7 +16,7 @@ class CreateProyekTable extends Migration
         Schema::create('proyek', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('judul_proyek');
-            $table->string('deskripsi_proyek')->nullable();
+            $table->text('deskripsi_proyek')->nullable();
             $table->string('jenis_proyek')->nullable();
             $table->string('tahun')->nullable();
             $table->string('image');

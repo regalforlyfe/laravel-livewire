@@ -16,8 +16,9 @@ class CreateAnggotaTable extends Migration
         Schema::create('anggota', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_proyek')->nullable()->index('id_proyek');
-            $table->unsignedBigInteger('id_dosen')->nullable()->index('id_dosen');
-            $table->unsignedBigInteger('id_mahasiswa')->nullable()->index('id_mahasiswa');
+            $table->unsignedBigInteger('id_dosen')->index('id_dosen');
+            $table->unsignedBigInteger('id_mahasiswa')->index('id_mahasiswa');
+            $table->timestamps();
         });
     }
 

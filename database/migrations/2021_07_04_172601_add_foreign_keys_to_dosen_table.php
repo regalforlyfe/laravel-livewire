@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToProyekTable extends Migration
+class AddForeignKeysToDosenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignKeysToProyekTable extends Migration
      */
     public function up()
     {
-        Schema::table('proyek', function (Blueprint $table) {
-            $table->foreign('id_kategori', 'proyek_ibfk_1')->references('id')->on('kategori')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+        Schema::table('dosen', function (Blueprint $table) {
+            $table->foreign('id_users', 'dosen_ibfk_1')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
@@ -25,8 +25,8 @@ class AddForeignKeysToProyekTable extends Migration
      */
     public function down()
     {
-        Schema::table('proyek', function (Blueprint $table) {
-            $table->dropForeign('proyek_ibfk_1');
+        Schema::table('dosen', function (Blueprint $table) {
+            $table->dropForeign('dosen_ibfk_1');
         });
     }
 }
