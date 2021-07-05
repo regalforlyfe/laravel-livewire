@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Mahasiswa;
+use App\Models\Dosen;
+use App\Models\Role;
+use App\Models\User;
 
 class HomeController extends Controller
 {

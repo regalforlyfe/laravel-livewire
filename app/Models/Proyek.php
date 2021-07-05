@@ -11,4 +11,9 @@ class Proyek extends Model
     protected $guard = [];
     protected $fillable = ['image','judul_proyek','tahun','deskripsi_proyek','jenis_proyek','id_kategori','link_proyek'];
     use HasFactory;
+
+    public function user()
+    {
+       return $this->belongsTo(User::class);
+    }
 }

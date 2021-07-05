@@ -8,13 +8,18 @@ use App\Models\Proyek as ProyekModel;
 use App\Models\Kategori as KategoriModel;
 use App\Models\Mahasiswa as MahasiswaModel;
 use App\Models\Dosen as DosenModel;
+use App\Models\PilihAnggota as AnggotaModel;
 use Illuminate\Support\Facades\Storage;
 
 class ProyekCreate extends Component
 {
     use WithFileUploads;
 
+    //public $statusUpdate = false;
+
     public $judul_proyek,$image,$deskripsi_proyek,$jenis_proyek,$id_kategori,$link_proyek,$tahun;
+    public $id_dosen;
+    public $id_mahasiswa;
 
     public function render()
     {
@@ -65,10 +70,16 @@ class ProyekCreate extends Component
             'id_kategori' => $this->id_kategori,
             'link_proyek' => $this->link_proyek
         ]);
+
+        $anggota = AnggotaModel::create([
+            'id_proyek' => $proyek->id,
+            'id_dosen' => $this->id_dosen,
+            'id_mahasiswa' => $this->id_mahasiswa
+        ]);
     
         $this->resetInput();
 
-        return redirect('/pilihanggota');
+        return redirect('/profil');
     }
 
     private function resetInput()

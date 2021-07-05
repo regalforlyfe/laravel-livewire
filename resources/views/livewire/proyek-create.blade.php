@@ -61,6 +61,28 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Dosen</label>
+                        <select wire:model="id_dosen" class="form-control">
+                            <option value="">Pilih salah satu</option>
+                            @foreach ($dosen as $value)
+                                <option value="{{ $value->id_dosen }}">{{ $value->nama }}</option>
+                            @endforeach
+                        </select>
+                        @error('$id_dosen') <small class="text-danger">{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mahasiswa</label>
+                        <select wire:model="id_mahasiswa" class="form-control">
+                            <option value="">Pilih salah satu</option>
+                            @foreach ($mahasiswa as $value)
+                                <option value="{{ $value->id_mahasiswa }}">{{ $value->nama }}</option>
+                            @endforeach
+                        </select>
+                        @error('$id_mahasiswa') <small class="text-danger">{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                     </div>
                 </form>

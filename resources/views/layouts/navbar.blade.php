@@ -27,23 +27,6 @@
 
             <li class="nav-item dropdown pl-3">
                 <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset('asset/mdi_notifications.png')}}" height="30" alt="logo" loading="lazy">
-                </a>
-
-                <ul class="dropdown-menu dropdown-menu-right" style="min-width: 250px;">
-                    <li class="dropdown-item text-center pt-3">
-                        <p> <a href="/mahasiswa"><b>Ahmad Rifal</b></a> Menambahkan anda dalam sebuah proyek</p>
-                    </li>
-                    <hr>
-                    <li class="dropdown-item text-center">
-                        <p> <a href="/mahasiswa"><b>pale</b></a> Menambahkan anda dalam sebuah proyek</p>
-                    </li>
-                </ul>
-
-            </li>
-
-            <li class="nav-item dropdown pl-3">
-                <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="{{asset('asset/mdi_arrow_drop_down.png')}}" height="30" alt="logo" loading="lazy">
                 </a>
 

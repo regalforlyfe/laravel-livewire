@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>SIDPM</title>
+    <link rel="icon" href="{{ asset('asset/logo1.png') }}">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
