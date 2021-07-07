@@ -9,6 +9,6 @@ class Dosen extends Model
 {
     protected $table = 'dosen';
     protected $guard = [];
-    protected $fillable = ['id_user','nama','nidn','prodi','foto_profil','alamat','no_hp','instagram'];
+    protected $fillable = ['id_users','nidn'];
     use HasFactory;
 }

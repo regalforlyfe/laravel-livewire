@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoleTable extends Migration
+class CreateKategoriTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('role', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nama_role');
+        Schema::create('kategori', function (Blueprint $table) {
+            $table->bigIncrements('id_kategori');
+            $table->string('nama_kategori', 20);
             $table->text('deskripsi')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -29,6 +29,6 @@ class CreateRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role');
+        Schema::dropIfExists('kategori');
     }
 }

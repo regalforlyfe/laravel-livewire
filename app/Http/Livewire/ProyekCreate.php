@@ -10,12 +10,11 @@ use App\Models\Mahasiswa as MahasiswaModel;
 use App\Models\Dosen as DosenModel;
 use App\Models\PilihAnggota as AnggotaModel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ProyekCreate extends Component
 {
     use WithFileUploads;
-
-    //public $statusUpdate = false;
 
     public $judul_proyek,$image,$deskripsi_proyek,$jenis_proyek,$id_kategori,$link_proyek,$tahun;
     public $id_dosen;
@@ -24,8 +23,12 @@ class ProyekCreate extends Component
     public function render()
     {
         $kategori = KategoriModel::get();
-        $mahasiswa = MahasiswaModel::get();
-        $dosen = DosenModel::get();
+        $mahasiswa = DB::table('mahasiswa')
+        ->join('users', 'mahasiswa.id_users', '=', 'users.id')
+        ->get();
+        $dosen = DB::table('dosen')
+        ->join('users', 'dosen.id_users', '=', 'users.id')
+        ->get();
         $proyek = ProyekModel::get();
         return view('livewire.proyek-create',[
             'kategori' => $kategori,
@@ -50,6 +53,8 @@ class ProyekCreate extends Component
             'jenis_proyek' => 'required',
             'id_kategori' => 'required',
             'link_proyek' => 'required',
+            'id_dosen' => 'required',
+            'id_mahasiswa' => 'required',
         ]);
 
         $imageName = md5($this->image.microtime()).'.'.$this->image->extension();

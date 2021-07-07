@@ -49,20 +49,20 @@ class RegisterDosen extends Component
         );
 
         $user = UserModel::create([
+            'nama' => $this->nama,
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'id_role' => 3,
-        ]);
-
-        $mahasiswa = DosenModel::create([
-            'id_users' => $user->id,
-            'nama' => $this->nama,
-            'nidn' => $this->nidn,
             'foto_profil' => $imageName,
             'prodi' => $this->prodi,
             'alamat' => $this->alamat,
             'no_hp' => $this->no_hp,
             'instagram' => $this->instagram,
+        ]);
+
+        $dosen = DosenModel::create([
+            'id_users' => $user->id,
+            'nidn' => $this->nidn,
         ]);
 
         return redirect('/login');

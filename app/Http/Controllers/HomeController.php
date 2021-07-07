@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use App\Models\Dosen;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $mahasiswa = DB::table('mahasiswa')
+            ->join('users', 'mahasiswa.id_users', '=', 'users.id')
+            //->join('mahasiswa', 'users.id', '=', 'mahasiswa.id_users')
+            //->join('dosen', 'users.id', '=', 'dosen.id_users')
+            ->get();
+        return view('home', [
+            'mahasiswa' => $mahasiswa,
+        ]);
     }
 }

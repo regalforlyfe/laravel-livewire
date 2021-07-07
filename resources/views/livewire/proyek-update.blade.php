@@ -14,10 +14,7 @@
                             <label for="customFile" class="custom-file-label">Choose Image</label>
                             @error('image') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
-                        {{-- @if ($image)
-                            <label class="mt-3">Image Preview</label>
-                            <img src="{{ $image->temporaryUrl() }}" height="30" class="img-fluid" alt="Preview Image">
-                        @endif --}}
+                        {{$image}}
                     </div>
 
                     <div class="form-group">

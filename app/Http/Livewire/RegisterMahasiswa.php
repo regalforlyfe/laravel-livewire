@@ -49,20 +49,20 @@ class RegisterMahasiswa extends Component
         );
 
         $user = UserModel::create([
+            'nama' => $this->nama,
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'id_role' => 2,
-        ]);
-
-        $mahasiswa = MahasiswaModel::create([
-            'id_users' => $user->id,
-            'nama' => $this->nama,
-            'nim' => $this->nim,
             'foto_profil' => $imageName,
             'prodi' => $this->prodi,
             'alamat' => $this->alamat,
             'no_hp' => $this->no_hp,
             'instagram' => $this->instagram,
+        ]);
+
+        $mahasiswa = MahasiswaModel::create([
+            'id_users' => $user->id,
+            'nim' => $this->nim,
         ]);
 
         return redirect('/login');

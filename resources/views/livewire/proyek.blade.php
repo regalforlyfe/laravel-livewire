@@ -1,8 +1,11 @@
 <div>
     @if ($statusUpdate)
-    <livewire:proyek-update></livewire:proyek-update>
+        <livewire:proyek-update></livewire:proyek-update>
     @endif
 
+    <div class="text-center">
+        <h3 class="pt-5">List Proyek</h3>
+    </div>
     @foreach ($proyek as $index => $proyek)
         <div class="container pt-5 pb-4">
             <div class="card">
@@ -10,12 +13,18 @@
                     <div class="row">
                         <div class="col align-self-end text-right">
                             <div class="dropdown">
-                                <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                </button>
+                                <a href="#" class="nav-link" data-toggle="dropdown" role="button"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <img src="{{ asset('asset/more.svg') }}" height="30"
+                                                alt="logo" loading="lazy">
+                                        </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <button wire:click="destroy({{ $proyek->id}})" class="dropdown-item" style="color: red" href="#">Delete</button>
-                                    <button wire:click="getProyek({{ $proyek->id}})" class="dropdown-item" href="#">Edit</button>
+                                    <button class="dropdown-item" style="color: red" data-toggle="modal"
+                                        data-target="#exampleModal"><h5>Delete</h5>
+                                        
+                                    </button>
+                                    <button wire:click="getProyek({{ $proyek->id_proyek }})" class="dropdown-item"
+                                        href="#"><h5>Edit</h5></button>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +83,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->id_kategori }} </h5>
+                                                <h5>{{ $proyek->nama_kategori }} </h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -85,8 +94,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                @foreach ($anggota as $value)
-                                                <h5>{{ $value->id_dosen }}</h5>
+                                                <h5>{{ $proyek->id_dosen }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -97,8 +105,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $value->id_mahasiswa }}</h5>
-                                                @endforeach
+                                                <h5>{{ $proyek->id_mahasiswa }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -116,6 +123,29 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Proyek</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah anda yakin untuk menghapus proyek?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger"
+                            wire:click="destroy({{ $proyek->id }})">Delete</button>
                     </div>
                 </div>
             </div>

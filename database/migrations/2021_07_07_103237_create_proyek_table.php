@@ -15,13 +15,13 @@ class CreateProyekTable extends Migration
     {
         Schema::create('proyek', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul_proyek');
+            $table->string('judul_proyek', 100);
             $table->text('deskripsi_proyek')->nullable();
-            $table->string('jenis_proyek')->nullable();
-            $table->string('tahun')->nullable();
-            $table->string('image');
+            $table->string('jenis_proyek', 40)->nullable();
+            $table->string('tahun', 5)->nullable();
+            $table->string('image', 100);
             $table->unsignedBigInteger('id_kategori')->nullable()->index('id_kategori');
-            $table->string('link_proyek');
+            $table->string('link_proyek', 40);
             $table->timestamps();
             $table->softDeletes();
         });

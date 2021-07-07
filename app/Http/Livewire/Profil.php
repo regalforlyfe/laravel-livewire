@@ -3,28 +3,42 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Proyek as ProyekModel;
-use App\Models\User;
+use Livewire\WithFileUploads;
+use App\Models\User as UserModel;
 use App\Models\Kategori;
-use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use Illuminate\Support\Facades\DB;
 
 class Profil extends Component
 {
+    use WithFileUploads;
+    
+    public $statusProfil = false;
+
+    public $image;
+
     public function render()
     {
-        $proyek = ProyekModel::orderBy('created_at')->get();
         $kategori = Kategori::get();
-        $user = User::get();
-        $mahasiswa = Mahasiswa::get();
+        //$user = User::get();
+         $user = DB::table('users')
+        //->join('mahasiswa', 'users.id', '=', 'mahasiswa.id_users')
+        ->join('mahasiswa', 'users.id', '=', 'mahasiswa.id_users')
+        //     ->join('dosen', 'users.id', '=', 'dosen.id_users')
+        ->get();
         $dosen = Dosen::get();
         return view('livewire.profil', [
-            'proyek' => $proyek,
-            'user' => $user,
             'kategori' => $kategori,
-            'mahasiswa' => $mahasiswa,
+            'user' => $user,
             'dosen' => $dosen,
         ]);
+    }
+
+    public function editProfil($id)
+    {
+        $this->statusProfil = true;
+        $user = UserModel::find($id);
+        $this->emit('editProfil', $user);
     }
 
 }

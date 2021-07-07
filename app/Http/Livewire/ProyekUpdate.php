@@ -9,12 +9,13 @@ use App\Models\Kategori as KategoriModel;
 use App\Models\Mahasiswa as MahasiswaModel;
 use App\Models\Dosen as DosenModel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ProyekUpdate extends Component
 {
     use WithFileUploads;
 
-    public $judul_proyek,$image,$deskripsi_proyek,$jenis_proyek,$id_kategori,$link_proyek,$tahun;
+    public $judul_proyek,$image,$deskripsi_proyek,$jenis_proyek,$id_kategori,$link_proyek,$tahun,$id_proyek, $id_dosen;
 
     protected $listeners = [
         'getProyek' => 'showProyek'
@@ -70,7 +71,7 @@ class ProyekUpdate extends Component
         );
 
         if ($this->id){
-            $proyek = ProyekModel::find($this->id);
+            $proyek = ProyekModel::find($this->id_proyek);
             $proyek->update([
                 'image' => $imageName,
                 'judul_proyek' => $this->judul_proyek,
@@ -81,6 +82,6 @@ class ProyekUpdate extends Component
                 'link_proyek' => $this->link_proyek
             ]);
         }
-        return redirect('/profil');
+        return redirect('/proyek');
     }
 }

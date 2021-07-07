@@ -30,9 +30,8 @@ Route::group(['middleware' => ['auth','verified']],function(){
     Route::get('/proyekupdate', ProyekUpdate::class);
     Route::get('/proyek', Proyek::class);
     Route::get('/profil', Profil::class);
-    Route::get('/admin', Admin::class);
+    Route::get('/admin', Admin::class); 
     Route::get('/pilihanggota/{id}', PilihAnggota::class);
-    Route::post('/store_mahasiswa', [App\Http\Controllers\Auth\RegisterController::class, 'store_mahasiswa'])->name('store_mahasiswa');
 });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
