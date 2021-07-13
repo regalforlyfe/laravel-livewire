@@ -11,11 +11,9 @@ use Illuminate\Support\Facades\Storage;
 class RegisterMahasiswa extends Component
 {
     use WithFileUploads;
-
     public $email, $password, $id_role;
     public $nama, $nim, $prodi, $foto_profil, $alamat, $no_hp, $instagram;
-
-
+    
     public function render()
     {
         return view('livewire.register-mahasiswa');

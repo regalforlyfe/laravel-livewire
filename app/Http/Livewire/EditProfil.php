@@ -9,15 +9,12 @@ use App\Models\User as UserModel;
 
 class EditProfil extends Component
 {
-
     use WithFileUploads;
-    
     public $nama, $prodi, $alamat, $no_hp, $email, $instagram, $foto_profil, $id_user;
 
     protected $listeners = [
         'editProfil' => 'showProfil'
     ];
-
 
     public function render()
     {

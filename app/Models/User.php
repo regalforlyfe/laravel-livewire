@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use app\Models\Dosen as DosenModel;
+use app\Models\Mahasiswa as MahasiswaModel;
 
 class User extends Authenticatable
 {
@@ -47,4 +49,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function dosen(){
+        return $this->belongsTo(DosenModel::class,'id','id_users');
+    }
+
+    public function mahasiswa(){
+        return $this->belongsTo(MahasiswaModel::class,'id','id_users');
+    }
 }

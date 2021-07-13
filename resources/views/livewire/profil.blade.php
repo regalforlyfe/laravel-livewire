@@ -1,5 +1,5 @@
 <div class="pt-5" style="background-color: #f8fafc;">
-    @foreach ($user->where('id', Auth::user()->id) as $index => $user)
+    @foreach ($user as $index => $user)
         <div class="text-center">
             <img style="border-radius: 50%" src="{{ url('storage/images/', $user->foto_profil) }}" height="150"
                 alt="foto_profil" loading="lazy">
@@ -49,7 +49,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="pb-4">
+                                                        @if(isset($user->dosen))
+                                                            <h5>NIDN</h5>
+                                                        @else
                                                         <h5>NIM</h5>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -96,7 +100,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="pb-4">
-                                                        <h5>{{ $user->nim }}</h5>
+                                                        @if(isset($user->dosen))
+                                                            <h5>{{ $user->dosen->nidn }}</h5>
+                                                        @else
+                                                        <h5>{{ $user->mahasiswa->nim }}</h5>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 <tr>

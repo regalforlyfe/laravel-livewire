@@ -7,20 +7,26 @@ use App\Models\PilihAnggota as Anggota;
 use App\Models\Proyek as ProyekModel;
 use App\Models\Mahasiswa as MahasiswaModel;
 use App\Models\Dosen as DosenModel;
+use Illuminate\Support\Facades\DB;
+
 
 class PilihAnggota extends Component
 {
     public $id_proyek, $id_dosen;
-    public $mahasiswa;
+    public $id_mahasiswa;
     public $anggota;
 
 
     public function render()
     {
         $proyek = ProyekModel::get();
-        $mahasiswa = MahasiswaModel::get();
-        $dosen = DosenModel::get();
-        //dd($id_proyek);
+        $mahasiswa = DB::table('mahasiswa')
+        ->join('users', 'mahasiswa.id_users', '=', 'users.id')
+        ->get();
+        $dosen = DB::table('dosen')
+        ->join('users', 'dosen.id_users', '=', 'users.id')
+        ->get();
+    
         return view('livewire.pilih-anggota', [
             'mahasiswa' => $mahasiswa,
             'dosen' => $dosen,

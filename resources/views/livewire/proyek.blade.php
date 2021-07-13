@@ -25,6 +25,9 @@
                                     </button>
                                     <button wire:click="getProyek({{ $proyek->id_proyek }})" class="dropdown-item"
                                         href="#"><h5>Edit</h5></button>
+                                    </button>
+                                    <a href="/pilihanggota" class="dropdown-item"
+                                        ><h5>Tambah Anggota</h5></a>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div>
-                                <img src="{{ url('storage/images/', $proyek->image) }}" height="300" width="200"
+                                <img src="{{ url('storage/images/', $proyek->proyek->image) }}" height="300" width="200"
                                     alt="gambar proyek" loading="lazy">
                             </div>
                         </div>
@@ -50,7 +53,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->judul_proyek }}</h5>
+                                                <h5>{{ $proyek->proyek->judul_proyek }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -61,7 +64,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->deskripsi_proyek }}</h5>
+                                                <h5>{{ $proyek->proyek->deskripsi_proyek }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -72,7 +75,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->jenis_proyek }}</h5>
+                                                <h5>{{ $proyek->proyek->jenis_proyek }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -83,7 +86,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->nama_kategori }} </h5>
+                                                <h5>{{ $proyek->proyek->kategori->nama_kategori }} </h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -94,7 +97,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->id_dosen }}</h5>
+                                                <h5>{{ $proyek->dosen->user->nama }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -105,7 +108,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->id_mahasiswa }}</h5>
+                                                <h5>{{ $proyek->mahasiswa->user->nama }}</h5>
                                             </td>
                                         </tr>
                                         <tr>
@@ -116,7 +119,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->link_proyek }}</h5>
+                                                <h5>{{ $proyek->proyek->link_proyek }}</h5>
                                             </td>
                                         </tr>
                                     </tbody>

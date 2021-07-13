@@ -81,20 +81,6 @@ class ProyekCreate extends Component
             'id_dosen' => $this->id_dosen,
             'id_mahasiswa' => $this->id_mahasiswa
         ]);
-    
-        $this->resetInput();
-
         return redirect('/profil');
-    }
-
-    private function resetInput()
-    {
-        $this->image = null;
-        $this->tahun = null;
-        $this->judul_proyek = null;
-        $this->deskripsi_proyek = null;
-        $this->jenis_proyek = null;
-        $this->id_kategori = null;
-        $this->link_proyek = null;
     }
 }

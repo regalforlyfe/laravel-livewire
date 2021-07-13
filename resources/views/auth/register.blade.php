@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div>
         <div class="text-center">
@@ -21,10 +20,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-2">
-                </div>
-
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-body" style="background-color: #8BCDCD;">

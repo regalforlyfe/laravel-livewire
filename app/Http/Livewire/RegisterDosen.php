@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Storage;
 class RegisterDosen extends Component
 {
     use WithFileUploads;
-
     public $email, $password, $id_role;
     public $nama, $nidn, $prodi, $foto_profil, $alamat, $no_hp, $instagram;
-
 
     public function render()
     {

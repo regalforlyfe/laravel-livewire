@@ -9,6 +9,7 @@ use App\Models\Kategori as KategoriModel;
 use App\Models\Mahasiswa as MahasiswaModel;
 use App\Models\Dosen as DosenModel;
 use App\Models\PilihAnggota as AnggotaModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Proyek extends Component
@@ -21,20 +22,18 @@ class Proyek extends Component
 
     public function render()
     {
-        $kategori = KategoriModel::get();
-        $mahasiswa = MahasiswaModel::get();
-        $dosen = DosenModel::get();
-        $proyek = DB::table('proyek')
-            ->join('anggota', 'proyek.id', '=', 'anggota.id_proyek')
-            ->join('kategori', 'proyek.id_kategori', '=', 'kategori.id_kategori')
-            ->get();
-        $anggota = AnggotaModel::get();
+        $mahasiswa = MahasiswaModel::where('id_users', Auth::user()->id)->first();
+        if (isset($mahasiswa->id_mahasiswa)) {
+            $proyek = AnggotaModel::with(['proyek', 'proyek.kategori', 'dosen', 'dosen.user', 'mahasiswa', 'mahasiswa.user'])
+            ->where('id_mahasiswa', $mahasiswa->id_mahasiswa)->get();
+        } else {
+            $dosen = DosenModel::where('id_users', Auth::user()->id)->first();
+            $proyek = AnggotaModel::with(['proyek', 'proyek.kategori', 'dosen', 'dosen.user', 'mahasiswa', 'mahasiswa.user'])
+            ->where('id_dosen', $dosen->id_dosen)->get();
+        }
+        //echo ($proyek->toJson());die;
         return view('livewire.proyek', [
-            'kategori' => $kategori,
-            'mahasiswa' => $mahasiswa,
-            'dosen' => $dosen,
             'proyek' => $proyek,
-            'anggota' => $anggota,
         ]);
     }
 
@@ -52,5 +51,9 @@ class Proyek extends Component
             $data->delete();
             return redirect('/profil');
         }
+    }
+
+    public function filter($id)
+    {
     }
 }

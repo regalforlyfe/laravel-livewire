@@ -31,7 +31,9 @@ Route::group(['middleware' => ['auth','verified']],function(){
     Route::get('/proyek', Proyek::class);
     Route::get('/profil', Profil::class);
     Route::get('/admin', Admin::class); 
-    Route::get('/pilihanggota/{id}', PilihAnggota::class);
+    Route::get('/pilihanggota', PilihAnggota::class);
+
+    Route::get('/proyek/{kategori}', [Proyek::class,'filter']);
 });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -8,9 +8,7 @@
                             <h1>{{ __('Register') }}</h1>
                             <h4>Dosen</h4>
                         </div>
-
                         </br>
-
                         <div class="form-group pl-5 pr-5">
                             <label>Foto Profil</label>
                             <div class="custom-file">
@@ -24,19 +22,16 @@
                                     alt="Preview Image">
                             @endif
                         </div>
-
                         <div class="form-group pl-5 pr-5">
                             <label>Nama</label>
                             <input wire:model="nama" type="text" class="form-control">
                             @error('nama') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
-
                         <div class="form-group pl-5 pr-5">
                             <label>NIDN</label>
                             <input wire:model="nidn" type="text" class="form-control">
                             @error('nidn') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
-
                         <div class="form-group pl-5 pr-5">
                             <label>Prodi</label>
                             <input wire:model="prodi" type="text" class="form-control">
