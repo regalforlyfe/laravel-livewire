@@ -10,7 +10,7 @@
                         <label>Gambar Proyek</label>
                         <div class="custom-file">
                             <input wire:model="image" type="file" class="form-control" id="customFile">
-                            <label for="customFile" class="custom-file-label">Choose Image</label>
+                            <label for="customFile" class="custom-file-label">Pilih Gambar</label>
                             @error('image') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         @if ($image)
@@ -21,25 +21,25 @@
 
                     <div class="form-group">
                         <label>Judul Proyek</label>
-                        <input wire:model="judul_proyek" type="text" class="form-control">
+                        <input wire:model="judul_proyek" placeholder="Masukan judul proyek" type="text" class="form-control">
                         @error('judul_proyek') <small class="text-danger">{{ $message }}</small>@enderror
                     </div>
 
                     <div class="form-group">
                         <label>Tahun</label>
-                        <input wire:model="tahun" type="text" class="form-control">
+                        <input wire:model="tahun" placeholder="Masukan tahun proyek dibuat" type="text" class="form-control">
                         @error('tahun') <small class="text-danger">{{ $message }}</small>@enderror
                     </div>
 
                     <div class="form-group">
                         <label>Deskripsi Proyek</label>
-                        <textarea wire:model="deskripsi_proyek" class="form-control"></textarea>
+                        <textarea wire:model="deskripsi_proyek" placeholder="Masukan deskripsi singkat tentang proyek yang anda buat" class="form-control"></textarea>
                         @error('deskripsi_proyek') <small class="text-danger">{{ $message }}</small>@enderror
                     </div>
 
                     <div class="form-group">
                         <label>Jenis Proyek</label>
-                        <input wire:model="jenis_proyek" type="text" class="form-control">
+                        <input wire:model="jenis_proyek" placeholder="Contoh : Proyek Matakuliah/Skripsi/Tugas Akhir/Proyek Lomba" type="text" class="form-control">
                         @error('jenis_proyek') <small class="text-danger">{{ $message }}</small>@enderror
                     </div>
 
@@ -56,7 +56,7 @@
 
                     <div class="form-group">
                         <label>Link Proyek</label>
-                        <input wire:model="link_proyek" type="text" class="form-control">
+                        <input wire:model="link_proyek" placeholder="Masukan link proyek google drive/github" type="text" class="form-control">
                         @error('link_proyek') <small class="text-danger">{{ $message }}</small>@enderror
                     </div>
 

@@ -8,6 +8,7 @@ use App\Models\Proyek as ProyekModel;
 use App\Models\Mahasiswa as MahasiswaModel;
 use App\Models\Dosen as DosenModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class PilihAnggota extends Component
@@ -19,17 +20,25 @@ class PilihAnggota extends Component
 
     public function render()
     {
-        $proyek = ProyekModel::get();
-        $mahasiswa = DB::table('mahasiswa')
+        $mahasiswa = MahasiswaModel::where('id_users', Auth::user()->id)->first();
+        if (isset($mahasiswa->id_mahasiswa)) {
+            $proyek = DB::table('proyek')->join('anggota', 'proyek.id', '=', 'anggota.id_proyek')
+            ->where('id_mahasiswa', $mahasiswa->id_mahasiswa)->get();
+        } else {
+            $dosen = DosenModel::where('id_users', Auth::user()->id)->first();
+            $proyek = DB::table('proyek')->join('anggota', 'proyek.id', '=', 'anggota.id_proyek')
+            ->where('id_dosen', $dosen->id_dosen)->get();
+        }
+        $mahasiswa1 = DB::table('mahasiswa')
         ->join('users', 'mahasiswa.id_users', '=', 'users.id')
         ->get();
-        $dosen = DB::table('dosen')
+        $dosen1 = DB::table('dosen')
         ->join('users', 'dosen.id_users', '=', 'users.id')
         ->get();
     
         return view('livewire.pilih-anggota', [
-            'mahasiswa' => $mahasiswa,
-            'dosen' => $dosen,
+            'mahasiswa' => $mahasiswa1,
+            'dosen' => $dosen1,
             'proyek' => $proyek,
         ]);
     }
@@ -42,7 +51,7 @@ class PilihAnggota extends Component
             'id_mahasiswa' => $this->id_mahasiswa,
         ]);
 
-        return redirect('/profil');
+        return redirect('/berhasil');
     }
 
 }

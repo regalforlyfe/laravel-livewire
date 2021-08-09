@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class TambahAnggota extends Component
+class Tambahkan extends Component
 {
     public function render()
     {
-        return view('livewire.tambah-anggota');
+        return view('livewire.tambahkan');
     }
 }

@@ -3,11 +3,20 @@
         <livewire:proyek-update></livewire:proyek-update>
     @endif
 
-    <div class="text-center">
+    <div class="container text-center">
         <h3 class="pt-5">List Proyek</h3>
+        {{-- <select class="form-control form-control-sm" style="width:150px" wire:model="selectedClass">
+            <option value="">Filter Kategori</option>
+            @foreach($kategori as $index)
+            <option value="{{$index->id_kategori}}">{{$index->nama_kategori}}</option>
+            @endforeach
+        </select> --}}
+        <div class="form-group pt-4 text-right">
+            <a href="/pilihanggota" class="btn btn-primary">Tambah Anggota</a>
+        </div>
     </div>
     @foreach ($proyek as $index => $proyek)
-        <div class="container pt-5 pb-4">
+        <div class="container pb-4">
             <div class="card">
                 <div class="container">
                     <div class="row">
@@ -26,8 +35,6 @@
                                     <button wire:click="getProyek({{ $proyek->id_proyek }})" class="dropdown-item"
                                         href="#"><h5>Edit</h5></button>
                                     </button>
-                                    <a href="/pilihanggota" class="dropdown-item"
-                                        ><h5>Tambah Anggota</h5></a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +126,7 @@
                                                 <h5>:</h5>
                                             </td>
                                             <td>
-                                                <h5>{{ $proyek->proyek->link_proyek }}</h5>
+                                                <a href="https://{{ $proyek->proyek->link_proyek }}"><h5>{{ $proyek->proyek->link_proyek }}</h5></a>
                                             </td>
                                         </tr>
                                     </tbody>

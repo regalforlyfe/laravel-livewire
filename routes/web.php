@@ -7,9 +7,11 @@ use App\Http\Livewire\ProyekUpdate;
 use App\Http\Livewire\Proyek;
 use App\Http\Livewire\Profil;
 use App\Http\Livewire\Kategori;
+use App\Http\Livewire\Mahasiswa;
 use App\Http\Livewire\PilihAnggota;
 use App\http\Livewire\RegisterMahasiswa;
 use App\http\Livewire\RegisterDosen;
+use App\Http\Livewire\Tambahkan;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +34,9 @@ Route::group(['middleware' => ['auth','verified']],function(){
     Route::get('/profil', Profil::class);
     Route::get('/admin', Admin::class); 
     Route::get('/pilihanggota', PilihAnggota::class);
+    Route::get('/mahasiswa', Mahasiswa::class);
+    Route::get('/berhasil', Tambahkan::class);
 
-    Route::get('/proyek/{kategori}', [Proyek::class,'filter']);
 });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

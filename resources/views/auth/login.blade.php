@@ -14,7 +14,7 @@
                             <div class="form-group pl-5 pr-5">
                                 <label for="email">{{ __('E-Mail Address') }}</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    name="email" value="{{ old('email') }}" placeholder="Masukan email disini" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
                             <div class="form-group pl-5 pr-5">
                                 <label for="password">{{ __('Password') }}</label>
                                 <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password" required
+                                    class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukan password disini" required
                                     autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

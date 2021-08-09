@@ -52,7 +52,6 @@ class ProyekCreate extends Component
             'deskripsi_proyek' => 'required',
             'jenis_proyek' => 'required',
             'id_kategori' => 'required',
-            'link_proyek' => 'required',
             'id_dosen' => 'required',
             'id_mahasiswa' => 'required',
         ]);
@@ -81,6 +80,6 @@ class ProyekCreate extends Component
             'id_dosen' => $this->id_dosen,
             'id_mahasiswa' => $this->id_mahasiswa
         ]);
-        return redirect('/profil');
+        return redirect('/proyek');
     }
 }

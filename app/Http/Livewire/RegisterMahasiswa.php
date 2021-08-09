@@ -29,7 +29,7 @@ class RegisterMahasiswa extends Component
         $this->validate([
             'nama' => 'required',
             'nim' => 'required',
-            'foto_profil' => 'required',
+            'foto_profil' => 'image|max:2048',
             'prodi' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required',

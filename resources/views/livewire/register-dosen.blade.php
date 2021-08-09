@@ -13,7 +13,7 @@
                             <label>Foto Profil</label>
                             <div class="custom-file">
                                 <input wire:model="foto_profil" type="file" class="form-control" id="customFile">
-                                <label for="customFile" class="custom-file-label">Choose Image</label>
+                                <label for="customFile" class="custom-file-label">Pilih Foto Profil</label>
                                 @error('foto_profil') <small class="text-danger">{{ $message }}</small>@enderror
                             </div>
                             @if ($foto_profil)
@@ -24,47 +24,47 @@
                         </div>
                         <div class="form-group pl-5 pr-5">
                             <label>Nama</label>
-                            <input wire:model="nama" type="text" class="form-control">
+                            <input wire:model="nama" placeholder="Masukan nama anda" type="text" class="form-control">
                             @error('nama') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="form-group pl-5 pr-5">
                             <label>NIDN</label>
-                            <input wire:model="nidn" type="text" class="form-control">
+                            <input wire:model="nidn" placeholder="Pastikan NIDN anda benar" type="text" class="form-control">
                             @error('nidn') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="form-group pl-5 pr-5">
                             <label>Prodi</label>
-                            <input wire:model="prodi" type="text" class="form-control">
+                            <input wire:model="prodi" placeholder="Masukan prodi anda" type="text" class="form-control">
                             @error('prodi') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
 
                         <div class="form-group pl-5 pr-5">
                             <label>alamat</label>
-                            <textarea wire:model="alamat" class="form-control"></textarea>
+                            <textarea wire:model="alamat" placeholder="Masukan alamat lengkap anda" class="form-control"></textarea>
                             @error('alamat') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
 
                         <div class="form-group pl-5 pr-5">
                             <label>No HP</label>
-                            <input wire:model="no_hp" type="text" class="form-control">
+                            <input wire:model="no_hp" placeholder="Masukan nomor handphone anda" type="text" class="form-control">
                             @error('no_hp') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
 
                         <div class="form-group pl-5 pr-5">
                             <label>instagram</label>
-                            <input wire:model="instagram" type="text" class="form-control">
+                            <input wire:model="instagram" placeholder="Masukan username instagram anda" type="text" class="form-control">
                             @error('instagram') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
 
                         <div class="form-group pl-5 pr-5">
                             <label>Email</label>
-                            <input wire:model="email" type="text" class="form-control">
+                            <input wire:model="email" placeholder="Masukan email anda" type="text" class="form-control">
                             @error('email') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
 
                         <div class="form-group pl-5 pr-5">
                             <label>Password</label>
-                            <input wire:model="password" type="password" class="form-control">
+                            <input wire:model="password" placeholder="Masukan password anda" type="password" class="form-control">
                             @error('judul_proyek') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
 

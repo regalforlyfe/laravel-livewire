@@ -44,6 +44,9 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                     </div>
+                    <div class="form-group">
+                        <a href="/profil" class="btn btn-danger btn-block">Batal</a>
+                    </div>
                 </form>
             </div>
         </div>

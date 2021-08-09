@@ -11,14 +11,14 @@
                         <select wire:model="id_proyek" class="form-control">
                             <option value="">Pilih salah satu</option>
                             @foreach ($proyek as $value)
-                                <option value="{{ $value->id }}">{{ $value->judul_proyek }}</option>
+                                <option value="{{ $value->id_proyek }}">{{ $value->judul_proyek }}</option>
                             @endforeach
                         </select>
                         @error('$id_proyek') <small class="text-danger">{{ $message }}</small>@enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Dosen</label>
+                        <label>Dosen Pembimbing</label>
                         <select wire:model="id_dosen" class="form-control">
                             <option value="">Pilih salah satu</option>
                             @foreach ($dosen as $value)

@@ -1,7 +1,7 @@
 <div class="pt-5" style="background-color: #f8fafc;">
     @foreach ($user as $index => $user)
         <div class="text-center">
-            <img style="border-radius: 50%" src="{{ url('storage/images/', $user->foto_profil) }}" height="150"
+            <img style="border-radius: 50%" src="{{ url('storage/images/', $user->foto_profil) }}" height="150" width="150"
                 alt="foto_profil" loading="lazy">
             <h2 class="pt-5">{{ $user->nama }}</h2>
         </div>
@@ -129,7 +129,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="pb-4">
-                                                        <h5>{{ $user->instagram }}</h5>
+                                                        <a href="https://www.instagram.com/{{$user->instagram}}"><h5>{{ $user->instagram }}</h5></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
